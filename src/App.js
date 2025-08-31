@@ -8,7 +8,7 @@ import FilterButton from "./components/FilterButton";
 
 function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
-
+  // Toggling of a checkbox
   function toggleTaskCompleted(id) {
     const updatedTasks = tasks.map((task) => {
       // if this task has the same ID as the edited task
@@ -21,10 +21,24 @@ function App(props) {
     });
     setTasks(updatedTasks);
   }
-
+  // Deletion of any task
   function deleteTask(id) {
     const remainingTasks = tasks.filter((task) => id !== task.id);
     setTasks(remainingTasks);
+  }
+
+  // Editing of task title
+  function editTask(id, newName) {
+    const editedTaskList = tasks.map((task) => {
+      // if this task has the same ID as the edited task
+      if (id === task.id) {
+        // Copy the task and update its name
+        return { ...task, name: newName };
+      }
+      // Return the original task if it's not the edited task
+      return task;
+    });
+    setTasks(editedTaskList);
   }
 
   const taskList = tasks?.map((task) => (
@@ -35,6 +49,7 @@ function App(props) {
       key={task.id}
       toggleTaskCompleted={toggleTaskCompleted}
       deleteTask={deleteTask}
+      editTask={editTask}
     />
   ));
 
