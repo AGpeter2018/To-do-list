@@ -13,28 +13,31 @@ function App(props) {
       key={task.id}
     />
   ));
+
+  function addTask(name) {
+    alert(name);
+  }
+
   return (
-    console.log(props.tasks),
-    (
-      <div className="todoapp stack-large">
-        <h1>hello world</h1>
-        <h1>TodoMatic</h1>
-        <Form />
-        <div className="filters btn-group stack-exception">
-          <FilterButton />
-          <FilterButton />
-          <FilterButton />
-        </div>
-        <h2 id="list-heading">3 tasks remaining</h2>
-        <ul
-          role="list"
-          className="todo-list stack-large stack-exception"
-          aria-labelledby="list-heading"
-        >
-          {taskList}
-        </ul>
+    // console.log(props.tasks),
+    <div className="todoapp stack-large">
+      <h1>hello world</h1>
+      <h1>TodoMatic</h1>
+      <Form addTask={addTask} />
+      <div className="filters btn-group stack-exception">
+        <FilterButton />
+        <FilterButton />
+        <FilterButton />
       </div>
-    )
+      <h2 id="list-heading">3 tasks remaining</h2>
+      <ul
+        role="list"
+        className="todo-list stack-large stack-exception"
+        aria-labelledby="list-heading"
+      >
+        {taskList}
+      </ul>
+    </div>
   );
 }
 
