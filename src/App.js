@@ -102,7 +102,6 @@ function App(props) {
   return (
     // console.log(props.tasks),
     <div className="todoapp stack-large">
-      <h1>hello world</h1>
       <h1>TodoMatic</h1>
       <Form addTask={addTask} />
       <div className="filters btn-group stack-exception">{filterList}</div>
